@@ -11,12 +11,12 @@
     <div class="container">
         <div class="card">
             <h2 class="card-header">Payment for example</h2>
-            <div class="alert alert-danger text-danger m-2" role="alert">
+            <div id="error" class="alert alert-danger text-danger m-2 d-none" role="alert">
                 Some fields are missing
             </div>
             <div class="card-body">
 
-                <form action="">
+                <form id="form"  onsubmit="preventForm()" action="">
                     <div class="row">
                         <div class="col-5">
                             <label for="inputPassword1" class="form-label">Card#</label>
@@ -56,8 +56,8 @@
 
                         <div class="col-3">
 
-                            <label for="state" class="form-label">State</label>
-                            <select id="state" class="form-select" name="state">
+                            <label for="state" class="form-label ">State</label>
+                            <select id="state" class="form-select form-control" name="state">
                                 <option value="">Pick a state</option>
                                 <option value="AL">Alabama</option>
                                 <option value="AK">Alaska</option>
@@ -77,16 +77,16 @@
                             <div class="col-5 form-check form-check-inline">
                                 <p class="d-flex">We accept:</p>
                                 <div class="d-inline-block bg-secondary rounded p-1">
-                                    <input type="radio" id="mastecard" name="color" value="option1">
+                                    <input type="radio" id="mastecard" class="radio-button" name="color" value="option1">
                                     <label for="mastecard"><i class="fa-brands fa-cc-mastercard "></i></label>
                                     
-                                    <input type="radio" id="visa" name="color" value="option2">
+                                    <input type="radio" id="visa" class="radio-button" name="color" value="option2">
                                     <label for="visa"><i class="fa-brands fa-cc-visa"></i></label>
                                     
-                                    <input type="radio" id="club" name="color" value="option3">
+                                    <input type="radio" id="club" class="radio-button" name="color" value="option3">
                                     <label for="club"><i class="fa-brands fa-cc-diners-club"></i> </label>
         
-                                    <input type="radio" id="amex" name="color" value="option4">
+                                    <input type="radio" id="amex" class="radio-button" name="color" value="option4">
                                     <label for="amex"><i class="fab fa-cc-amex"></i></label>
                                 </div>
                             </div>
@@ -105,9 +105,9 @@
 
             </div>
             <div class="card-footer text-body-secondary" >
-                <div class=" d-flex justify-content-end"">
-                    <a href="#" class="btn btn-secondary m-1">Cancel</a>
-                    <a href="#" class="btn btn-primary m-1" >Send</a>
+                <div class=" d-flex justify-content-end">
+                    <button class="btn btn-secondary m-1">Cancel</button>
+                    <button id="send" class="btn btn-primary m-1" >Send</button>
                 </div>
 
               </div>
@@ -115,6 +115,6 @@
 
     </div>
     
-
+    <script src="/app.js"></script>
 </body>
 </html>
