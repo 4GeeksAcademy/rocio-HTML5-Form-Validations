@@ -1,21 +1,12 @@
-// let input=document.getElementById("inputPassword1");
+
 let inputs = document.querySelectorAll(".form-control");
 let btn=document.getElementById("send");
-
 let form=document.getElementById("form");
-
 let radioButtons = document.getElementsByClassName('radio-button');
-
-
 let error=document.getElementById("error");
+let cancelBtn = document.getElementById("cancel");
 
-// let preventForm = (e) => {
-//     e.preventDefault();
-//   };
 
-// form.addEventListener("submit",function(event){
-//     alert("Hola soy el form");
-// });
 
 btn.addEventListener("click",function(e){ 
     e.preventDefault();
@@ -43,7 +34,6 @@ btn.addEventListener("click",function(e){
         }
     }
 
-
     if(camposVacios>0 || !radioChecked){
         error.className="alert alert-danger text-danger m-2 d-inline";
         error.innerHTML="Please fill out all fields";
@@ -51,4 +41,21 @@ btn.addEventListener("click",function(e){
     }else{
         error.className="alert alert-danger text-danger m-2 d-none";
     }
+});
+
+//funcion para limpiar los inputs
+
+cancelBtn.addEventListener("click",function(e){
+    e.preventDefault();
+    // Recorre cada uno de los elementos del array inputs
+    for (let i = 0; i < inputs.length; i++) {
+        inputs[i].value = ""; // Limpia el valor del campo
+        inputs[i].className = "form-control"; // Restablece el estilo de los campos
+    }
+    // Recorre los radios para deseleccionarlos
+    for (let i = 0; i < radioButtons.length; i++) {
+        radioButtons[i].checked = false;
+    }
+    error.className = "alert alert-danger text-danger m-2 d-none";
+    
 });
